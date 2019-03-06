@@ -34,15 +34,6 @@ enterNewUserEmail = False
 newUserName = ""
 newUserEmail = ""
 l = []
-
-def checkLetterInput():
-    letter = " "
-    if event.key == pygame.K_a:
-        letter = "a"
-    elif event.key == pygame.K_b:
-        letter = "b"
-    elif event.key == pygame.K_c:
-        letter = "c"
     
 while done == False:
     for event in pygame.event.get():
@@ -63,22 +54,39 @@ while done == False:
                 mx, my = pygame.mouse.get_pos()
                 if mx > 275 and mx < 550 and my > 240 and my <265:
                     enterNewUserName = True
-                elif mx > 550 and mx < 600 and my > 250 and my < 280:
-                    enterNewUserName = False
-                    userName = newUserName# <----- this (userName) is placeholder for the current username being searched for, this should be added to the database as a new entry
-                    newUserName = ""
-                    l = []
-                    print(userName)
-                elif mx > 610 and mx < 650 and my > 250 and my < 280:
-                    enterNewUserName = False
-                    newUserName = ""
-                    l = []
+                elif mx > 235 and mx < 550 and my > 270 and my < 295:
+                    enterNewUserEmail = True
+                if enterNewUserName == True:
+                    if mx > 550 and mx < 600 and my > 250 and my < 265:
+                        enterNewUserName = False
+                        userName = newUserName #(userName) is where the user would input their new username, so change this to whatever you use in the main code!
+                        newUserName = ""
+                        l = []
+                        print(userName)
+                    elif mx > 610 and mx < 650 and my > 250 and my < 265:
+                        enterNewUserName = False
+                        newUserName = ""
+                        l = []
+                elif enterNewUserEmail == True:
+                    if mx > 550 and mx < 600 and my > 270 and my < 285:
+                        enterNewUserEmail = False
+                        userEmail = newUserEmail #same above, but for the new user's email address this time.
+                        newUserEmail = ""
+                        l = []
+                        print(userEmail)
+                    elif mx > 610 and mx < 650 and my > 270 and my < 285:
+                        enterNewUserEmail = False
+                        newUserName = ""
+                        l = []
             if enterNewUserName == True or enterNewUserEmail == True:  
                 if event.type == pygame.KEYDOWN:
                     letterInput = pygame.key.name(event.key)
                     if enterNewUserName == True:
                         l.append(letterInput)
                         newUserName = ''.join(l)
+                    if enterNewUserEmail == True:
+                        l.append(letterInput)
+                        newUserEmail = ''.join(l)
     screen.blit(backGround,(0,0))
     #calculates the bicycle's posistion and changes it
     if bicycleX > 801 or bicycleX < -101:
@@ -110,7 +118,11 @@ while done == False:
         if enterNewUserName == True:
             screen.blit(myFont.render("DONE",1,BLUE),(560,240))
             screen.blit(myFont.render("CANCEL",1,BLUE),(610,240))
-            screen.blit(myFont.render(newUserName,1,BLUE),(275,240))
+            screen.blit(myFont.render(newUserName,1,BLUE),(275,235))
+        elif enterNewUserEmail == True:
+            screen.blit(myFont.render("DONE",1,BLUE),(560,270))
+            screen.blit(myFont.render("CANCEL",1,BLUE),(610,270))
+            screen.blit(myFont.render(newUserEmail,1,BLUE),(235,265))
     pygame.display.flip()
     clock.tick(60)
 pygame.quit()
