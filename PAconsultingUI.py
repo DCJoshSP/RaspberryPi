@@ -4,7 +4,7 @@ import math
 import sys
 
 pygame.init()
-size = (800,500)
+size = (800,300)
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption("UI")
 done= False
@@ -20,6 +20,7 @@ LIGHTBLUE = (50,175,236)
 RED = (255,50,50)
 SKINCOLOUR = (235,160,130)
 COLOUR = (150,200,0)
+
 #background picture and sprites
 backGround = pygame.image.load("PaconsultingBG.png")
 bicycleSpriteLeft = pygame.image.load("bicycleSpriteLeft.png")
@@ -28,7 +29,7 @@ bicycleCurrent = bicycleSpriteRight
 bicycleVelocity = random.randint(1,5)
 bicycleSide = 0
 bicycleX = -100
-bicycleY = 404
+bicycleY = 204
 myFont =  pygame.font.SysFont("Impact",20)
 myBigFont =  pygame.font.SysFont("Impact",50)
 
@@ -57,47 +58,47 @@ while done == False:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 #checks the mouse to see if the user has clicked on a button
                 mx, my = pygame.mouse.get_pos()
-                if mx > 150 and mx < 300 and my >200 and my < 300:
+                if mx > 150 and mx < 300 and my >100 and my < 200:
                     stage = 2
                     print(stage)
-                elif mx > 500 and mx < 650 and my>200 and my<300:
+                elif mx > 500 and mx < 650 and my>100 and my<200:
                     stage = 3
                     print(stage)
         elif stage == 2:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 mx, my = pygame.mouse.get_pos()
-                if mx > 190 and mx < 245 and my >360 and my < 395:
+                if mx > 190 and mx < 245 and my >260 and my < 295:
                     stage = 1
-                if mx > 275 and mx < 550 and my > 240 and my <265:
+                if mx > 275 and mx < 550 and my > 140 and my <165:
                     enterNewUserName = True
-                elif mx > 235 and mx < 550 and my > 270 and my < 295:
+                elif mx > 235 and mx < 550 and my > 170 and my < 195:
                     enterNewUserEmail = True
                 if enterNewUserName == True:
-                    if mx > 550 and mx < 600 and my > 240 and my < 265:
+                    if mx > 550 and mx < 600 and my > 140 and my < 165:
                         enterNewUserName = False
                         userName = newUserName #(userName) is where the user would input their new username, so change this to whatever you use in the main code!
                         newUserName = ""
                         l = []
                         print(userName)
                         newUserNameInput = True
-                    elif mx > 610 and mx < 650 and my > 240 and my < 265:
+                    elif mx > 610 and mx < 650 and my > 140 and my < 165:
                         enterNewUserName = False
                         newUserName = ""
                         l = []
                 elif enterNewUserEmail == True:
-                    if mx > 550 and mx < 600 and my > 270 and my < 285:
+                    if mx > 550 and mx < 600 and my > 170 and my < 185:
                         enterNewUserEmail = False
                         userEmail = newUserEmail #same above, but for the new user's email address this time.
                         newUserEmail = ""
                         l = []
                         print(userEmail)
                         newUserEmailInput = True
-                    elif mx > 610 and mx < 650 and my > 270 and my < 285:
+                    elif mx > 610 and mx < 650 and my > 170 and my < 185:
                         enterNewUserEmail = False
                         newUserName = ""
                         l = []
                 elif newUserNameInput == True and newUserEmailInput == True:
-                    if mx > 290 and mx < 435 and my > 320 and my < 370:
+                    if mx > 290 and mx < 435 and my > 120 and my < 170:
                         stage = 1
                         print("hi")
             elif enterNewUserName == True or enterNewUserEmail == True:  
@@ -154,33 +155,33 @@ while done == False:
             bicycleX = bicycleX - bicycleVelocity
     screen.blit(bicycleCurrent, (bicycleX,bicycleY))
     if stage == 1:
-        pygame.draw.rect(screen, YELLOW , (150,200,150,100))
-        pygame.draw.rect(screen, YELLOW , (500,200,150,100))
-        screen.blit(myFont.render("CREATE NEW",1,BLUE),(175,235))
-        screen.blit(myFont.render("LOG IN",1,BLUE),(550,235))
+        pygame.draw.rect(screen, YELLOW , (150,100,150,100))
+        pygame.draw.rect(screen, YELLOW , (500,100,150,100))
+        screen.blit(myFont.render("CREATE NEW",1,BLUE),(175,135))
+        screen.blit(myFont.render("LOG IN",1,BLUE),(550,135))
         userName = ""
     elif stage == 2:
-        screen.blit(myFont.render("Creating new acount:",1,BLUE),(100,200))
-        pygame.draw.rect(screen, YELLOW, (275,260,275,5))
-        screen.blit(myFont.render("Enter Username:",1,BLUE),(140,240))
-        pygame.draw.rect(screen, YELLOW, (235,290,315,5))
-        screen.blit(myFont.render("Enter Email:",1,BLUE),(140,270))
+        screen.blit(myFont.render("Creating new acount:",1,BLUE),(100,100))
+        pygame.draw.rect(screen, YELLOW, (275,160,275,5))
+        screen.blit(myFont.render("Enter Username:",1,BLUE),(140,140))
+        pygame.draw.rect(screen, YELLOW, (235,190,315,5))
+        screen.blit(myFont.render("Enter Email:",1,BLUE),(140,170))
         pygame.draw.rect(screen, YELLOW, (290,320,145,50))
-        screen.blit(myFont.render("Create account",1,BLUE),(300,330))
+        screen.blit(myFont.render("Create account",1,BLUE),(300,230))
         pygame.draw.rect(screen, YELLOW, (190,360,55,35))
-        screen.blit(myFont.render("BACK",1,BLUE),(195,365))
+        screen.blit(myFont.render("BACK",1,BLUE),(195,265))
         if enterNewUserName == True:
-            screen.blit(myFont.render("DONE",1,BLUE),(560,240))
-            screen.blit(myFont.render("CANCEL",1,BLUE),(610,240))
-            screen.blit(myFont.render(newUserName,1,BLUE),(275,235))
+            screen.blit(myFont.render("DONE",1,BLUE),(560,140))
+            screen.blit(myFont.render("CANCEL",1,BLUE),(610,140))
+            screen.blit(myFont.render(newUserName,1,BLUE),(275,135))
         elif enterNewUserEmail == True:
-            screen.blit(myFont.render("DONE",1,BLUE),(560,270))
-            screen.blit(myFont.render("CANCEL",1,BLUE),(610,270))
-            screen.blit(myFont.render(newUserEmail,1,BLUE),(235,265))
+            screen.blit(myFont.render("DONE",1,BLUE),(560,170))
+            screen.blit(myFont.render("CANCEL",1,BLUE),(610,170))
+            screen.blit(myFont.render(newUserEmail,1,BLUE),(235,165))
         if newUserNameInput == True:
-            screen.blit(myFont.render(userName,1,BLUE),(275,235))
+            screen.blit(myFont.render(userName,1,BLUE),(275,135))
         if newUserEmailInput == True:
-            screen.blit(myFont.render(userEmail,1,BLUE),(235,265))
+            screen.blit(myFont.render(userEmail,1,BLUE),(235,165))
     elif stage == 3:
         screen.blit(myFont.render("Use arrows to cycle through accounts, then press ENTER to select yours.",1,BLUE),(120,180))
         screen.blit(myBigFont.render("<",1,BLUE),(275,220))
