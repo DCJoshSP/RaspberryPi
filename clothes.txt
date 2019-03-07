@@ -1,0 +1,5 @@
+{'Shirts': {'Sleeveless/scoop-neck blouse': 0.12, 'Long-sleeve sweatshirt': 0.34}, 'Trousers': {'Short shorts': 0.06, 'Coveralls': 0.49}, 'Sweaters': {'Sleeveless vest (thin)': 0.13, 'Long-sleeve (thick)': 0.36}, 'Socks': {'(thin socks)/sandals/shoes': 0.02, 'Boots': 0.1}}
+{'Shirts': 'Sleeveless/scoop-neck blouse', 'Trousers': 'Short shorts', 'Sweaters': 'Sleeveless vest (thin)', 'Socks': '(thin socks)/sandals/shoes'}
+{'2019-03-07': 'cold'}
+{'2019-03-07': {'temp': 10.46, 'temp_max': 12.22, 'temp_min': 8.89, 'temp_kf': None, 'status': 'Rain', 'speed': 10.8, 'deg': 240, 'gust': 16.5, 'humidity': 53}}
+tomorrow weather: 4.69°C

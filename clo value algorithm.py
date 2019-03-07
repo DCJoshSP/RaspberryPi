@@ -1,17 +1,17 @@
 import itertools as it      #combination
 
 
-
 #Algorithm with clo values pre-installed
 #only using a few items to show method, clo values are accurate
+with open("clothes.txt", "r") as myfile:
+    for i, line in enumerate(myfile):
+        if i == 0:
+            data = line.strip()
+        if i == 3:
+                temp = line.strip()
+                temp = float(temp[23:28])
 
-my_clothes = {
-    "shirt":{"short-sleeve": 0.09, "long-sleeve": 0.25},
-    "trousers":{"shorts":0.06,"jeans":0.25},
-    "jacket":{"vest":0.13,"heavy jacket":0.35},
-    "base layer":{"nylon":0.14,"long-sleeve":0.12},
-    }
-
+my_clothes = eval(data)
 def return_key(val, category):
         for garment in my_clothes[category]:
             if my_clothes[category][garment] == val:
@@ -20,7 +20,6 @@ def return_key(val, category):
 #at 21C clo is 1 standard room temperature
 #wind chill can be added later
 
-temp = 23
 clo_value = 1+((21-temp)*0.16)      #suggest clo value
 
 best1 = []
@@ -44,5 +43,7 @@ print("Best option to wear today: ")
 for i in my_clothes:
     print(return_key(best_list[count],i))
     count = count + 1
+
+
 
 
