@@ -1,0 +1,63 @@
+﻿clothingtypecategory,clothingtypekey,clovalue
+Nude,Nude,0
+Underwear - pants,Pantyhose,0.02
+Underwear - pants,Panties,0.03
+Underwear - pants,Briefs,0.04
+Underwear - pants,Pants 1/2 long legs made of wool,0.06
+Underwear - pants,Pants long legs,0.1
+Underwear - shirts,Bra,0.01
+Underwear - shirts,Shirt sleeveless,0.06
+Underwear - shirts,T-shirt,0.09
+Underwear - shirts,Shirt with long sleeves,0.12
+Underwear - shirts,Half-slip in nylon,0.14
+Shirts,Tube top,0.06
+Shirts,Short sleeve,0.09
+Shirts,Light blouse with long sleeves,0.15
+Shirts,Light shirt with long sleeves,0.2
+Shirts,Normal with long sleeves,0.25
+Shirts,Flannel shirt with long sleeves,0.3
+Shirts,Long sleeves with turtleneck blouse,0.34
+Trousers,Shorts,0.06
+Trousers,Walking shorts,0.11
+Trousers,Light trousers,0.2
+Trousers,Normal trousers,0.25
+Trousers,Flannel trousers,0.28
+Trousers,Overalls,0.28
+Coveralls,"Daily wear, belted",0.49
+Coveralls,Work,0.5
+Highly-insulating coveralls,Multi-component with filling,1.03
+Highly-insulating coveralls,Fiber-pelt,1.13
+Sweaters,Sleeveless vest,0.12
+Sweaters,Thin sweater,0.2
+Sweaters,Long thin sleeves with turtleneck,0.26
+Sweaters,Thick sweater,0.35
+Sweaters,Long thick sleeves with turtleneck,0.37
+Jacket,Vest,0.13
+Jacket,Light summer jacket,0.25
+Jacket,Smock,0.3
+Jacket,Jacket,0.35
+Coats and over-jackets and over-trousers,Overalls multi-component,0.52
+Coats and over-jackets and over-trousers,Down jacket,0.55
+Coats and over-jackets and over-trousers,Coat,0.6
+Coats and over-jackets and over-trousers,Parka,0.7
+Socks,Socks,0.02
+Shoes,Thin soled shoes,0.02
+Shoes,Quilted fleece slippers,0.03
+Shoes,Thick soled shoes,0.04
+Socks,Thick ankle socks,0.05
+Shoes,Boots,0.05
+Socks,Thick long socks,0.1
+"Skirts, dresses",Light skirt 15 cm. above knee,0.01
+"Skirts, dresses",Light skirt 15 cm. below knee,0.18
+"Skirts, dresses",Heavy skirt knee-length,0.25
+"Skirts, dresses",Light dress sleeveless,0.25
+"Skirts, dresses",Winter dress long sleeves,0.4
+Sleepwear,Under shorts,0.1
+Sleepwear,Short gown thin strap,0.15
+Sleepwear,Long gown long sleeve,0.3
+Sleepwear,Hospital gown,0.31
+Sleepwear,long pajamas with long sleeve,0.5
+Sleepwear,Body sleep with feet,0.72
+Robes,"Long sleeve, wrap, short",0.41
+Robes,"Long sleeve, wrap, long",0.53
+,,
