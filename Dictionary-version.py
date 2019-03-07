@@ -84,11 +84,12 @@ def feeling():
 
 owm = pyowm.OWM('19869702ff812dc8fab95ff8ddffec2f')
 
+
 def weather_today():
     observation = owm.weather_at_place('London,GB') ### Search for current weather in London (Great Britain)
     w = observation.get_weather()
     current_date = datetime.datetime.now().strftime("%Y-%m-%d")
-    weather_dict[current_date] = dict(w.get_temperature('celsius'), **{"status": w.get_status()}, **w.get_wind(), **{"humidity": w.get_humidity()}) ### Weather details
+    weather_dict[current_date] = dict(w.get_temperature('celsius'))# **{"status": w.get_status()}, **w.get_wind(), **{"humidity": w.get_humidity()}) ### Weather details
     with open("clothes.txt", "a") as myfile:
         print(weather_dict, file=myfile)
 

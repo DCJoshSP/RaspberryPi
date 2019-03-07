@@ -3,3 +3,8 @@
 {'2019-03-07': 'cold'}
 {'2019-03-07': {'temp': 10.46, 'temp_max': 12.22, 'temp_min': 8.89, 'temp_kf': None, 'status': 'Rain', 'speed': 10.8, 'deg': 240, 'gust': 16.5, 'humidity': 53}}
 tomorrow weather: 4.69°C
+{'Shirts': 'Sleeveless/scoop-neck blouse', 'Trousers': 'Short shorts', 'Sweaters': 'Sleeveless vest (thin)', 'Socks': '(thin socks)/sandals/shoes'}
+{'2019-03-07': 'very not that warm'}
+{'2019-03-07': {'temp': 10.61, 'temp_max': 12.22, 'temp_min': 8.89, 'temp_kf': None, 'status': 'Rain', 'speed': 13.9, 'deg': 250, 'humidity': 46}}
+tomorrow weather: 4.69°C
+{'2019-03-07': {'temp': 10.59, 'temp_max': 12.22, 'temp_min': 8.89, 'temp_kf': None}}
