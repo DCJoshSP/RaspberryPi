@@ -38,8 +38,8 @@ enterNewUserName = False
 enterNewUserEmail = False
 newUserNameInput= False
 newUserEmailInput = False
-newUserName = "bob"
-newUserEmail = "bob@gmail.com"
+newUserName = ""
+newUserEmail = ""
 
 #variables for the login page
 loginName = ""
@@ -50,6 +50,17 @@ userName = ""
 #variables for updating account info
 updateUserName = False
 updateUserEmail = False
+temporaryUserName = "bob"
+temporaryUserEmail = "bob@gmail.com"
+
+#variable for creating new clothes
+newClothingCategory = " "
+newClothingType = " "
+newClothingName = ""
+
+#variables for deleting clothes
+deleteClothingName = ""
+deleteClothingType = "Jacket"
 
 #empty string used to display letters input
 l = []
@@ -68,6 +79,7 @@ while done == False:
                 elif mx > 500 and mx < 650 and my>150 and my<250:
                     stage = 3
                     print(stage)
+                    
         elif stage == 2:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 mx, my = pygame.mouse.get_pos()
@@ -113,6 +125,7 @@ while done == False:
                     if enterNewUserEmail == True:
                         l.append(letterInput)
                         newUserEmail = ''.join(l)
+
         elif stage == 3:
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     mx, my = pygame.mouse.get_pos()
@@ -133,6 +146,7 @@ while done == False:
                         userName = userNames[userNameDisplayNo]
                         print(userName)
                         stage = 4
+                        
         elif stage == 4:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 mx, my = pygame.mouse.get_pos()
@@ -153,44 +167,143 @@ while done == False:
                     stage = 9
                 elif mx > 500 and mx < 650 and my > 150 and my < 250:
                     stage = 10
+                    
         elif stage == 6:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 mx, my = pygame.mouse.get_pos()
                 if mx > 190 and mx < 245 and my >310 and my < 345:
                     stage = 4
-                elif mx > 500 and mx < 550 and my > 150 and my < 175:
-                    updateUserName = True
-                elif mx > 500 and mx < 550 and my > 180 and my < 205:
-                    updateUserEmail = True
+                if updateUserEmail == False and updateUserName == False:
+                    if mx > 500 and mx < 550 and my > 150 and my < 175:
+                        updateUserName = True
+                    elif mx > 500 and mx < 550 and my > 180 and my < 205:
+                        updateUserEmail = True
+                elif updateUserName == True:
+                    if mx > 500 and mx < 545 and my > 150 and my < 175:
+                        updateUserName = False
+                        l = []
+                    elif mx > 550 and mx < 595 and my > 150 and my < 175:
+                        temporaryUserName = ""
+                        updateUserName = False
+                        l = []
+                elif updateUserEmail == True:
+                    if mx > 500 and mx < 545 and my > 180 and my < 205:
+                        updateUserEmail = False
+                        l = []
+                    elif mx > 550 and mx < 595 and my > 180 and my < 205:
+                        temporaryUserEmail = ""
+                        updateUserEmail = False
+                        l = []
             elif event.type == pygame.KEYDOWN:
-                elif enterNewUserName == True or enterNewUserEmail == True:  
                 letterInput = pygame.key.name(event.key)
                 if enterNewUserName == True:
                     l.append(letterInput)
-                    newUserName = ''.join(l)
-                if enterNewUserEmail == True:
+                    temporaryUserName = "".join(l)
+                elif enterNewUserEmail == True:
                     l.append(letterInput)
-                    newUserEmail = ''.join(l)
+                    temporaryUserEmail = "".join(l)
+                    
         elif stage == 7:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 mx, my = pygame.mouse.get_pos()
                 if mx > 190 and mx < 245 and my >310 and my < 345:
                     stage = 4
+                    
         elif stage == 8:
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    mx, my = pygame.mouse.get_pos()
-                    if mx > 315 and mx < 485 and my > 280 and my < 330:
-                        stage = 1
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                mx, my = pygame.mouse.get_pos()
+                if mx > 315 and mx < 485 and my > 280 and my < 330:
+                    stage = 1
+                    #CREATE NEW USER FUNCTION HERE
+                        
         elif stage == 9:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 mx, my = pygame.mouse.get_pos()
                 if mx > 190 and mx < 245 and my >310 and my < 345:
-                    stage = 6
+                    stage = 5
+                elif mx > 50 and mx < 150 and my > 150 and my < 200:
+                    newClothingCategory = "Jacket"
+                    stage = 11
+                elif mx > 160 and mx < 260 and my > 150 and my < 200:
+                    newClothingCategory = "Underwear"
+                    stage = 11
+                elif mx > 270 and mx < 370 and my > 150 and my < 200:
+                    newClothingCategory = "Shirt"
+                    stage = 11
+                elif mx > 380 and mx < 480 and my > 150 and my < 200:
+                    newClothingCategory = "Trousers"
+                    stage = 11
+                elif mx > 490 and mx < 590 and my > 150 and my < 200:
+                    newClothingCategory = "Coveralls"
+                    stage = 11
+                elif mx > 50 and mx < 150 and my > 210 and my < 260:
+                    newClothingCategory = "Sweater"
+                    stage = 11
+                elif mx > 160 and mx < 260 and my > 210 and my < 260:
+                    newClothingCategory = "Coat"
+                    stage = 11
+                elif mx > 270 and mx < 370 and my > 210 and my < 260:
+                    newClothingCategory = "Socks"
+                    stage = 11
+                elif mx > 380 and mx < 480 and my > 210 and my < 260:
+                    newClothingCategory = "Shoes"
+                    stage = 11
+                elif mx > 490 and mx < 590 and my > 210 and my < 260:
+                    newClothingCategory = "Dress"
+                    stage = 11
+            
         elif stage == 10:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 mx, my = pygame.mouse.get_pos()
                 if mx > 190 and mx < 245 and my >310 and my < 345:
-                    stage = 6
+                    stage = 5
+                elif mx > 450 and mx < 520 and my > 220 and my < 250:
+                    deleteClothingName = ""
+                    l = []
+                elif mx > 290 and mx < 390 and my >320 and my < 370:
+                    stage = 13
+            elif event.type == pygame.KEYDOWN:
+                if pygame.key.name(event.key) == "space":
+                    letterInput = " "
+                else:
+                    letterInput = pygame.key.name(event.key)
+                l.append(letterInput)
+                deleteClothingName = "".join(l)
+
+        elif stage == 11:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                mx, my = pygame.mouse.get_pos()
+                if mx > 190 and mx < 245 and my >310 and my < 345:
+                    stage = 9
+                elif mx > 450 and mx < 520 and my > 220 and my < 250:
+                    newClothingName = ""
+                    l = []
+                elif mx > 290 and mx < 390 and my > 320 and my < 370:
+                    stage = 12
+            elif event.type == pygame.KEYDOWN:
+                if pygame.key.name(event.key) == "space":
+                    letterInput = " "
+                else:
+                    letterInput = pygame.key.name(event.key)
+                l.append(letterInput)
+                newClothingName = "".join(l)
+
+        elif stage == 12:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                mx, my = pygame.mouse.get_pos()
+                if mx > 290 and mx < 390 and my >320 and my < 370:
+                    stage = 4
+                    #CREATE NEW CLOTHES FUNCTION HERE
+
+        elif stage == 13:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                mx, my = pygame.mouse.get_pos()
+                if mx > 290 and mx < 390 and my >320 and my < 370:
+                    stage = 4
+                    #DELTE FUNCTION HERE
+                elif mx > 190 and mx < 245 and my >310 and my < 345:
+                    stage = 10
+
     screen.blit(backGround,(0,0))
     #calculates the bicycle's posistion and changes it
     if bicycleX > 801 or bicycleX < -101:
@@ -208,12 +321,14 @@ while done == False:
         elif bicycleSide == 1:
             bicycleX = bicycleX - bicycleVelocity
     screen.blit(bicycleCurrent, (bicycleX,bicycleY))
+    
     if stage == 1:
         pygame.draw.rect(screen, YELLOW , (150,150,150,100))
         pygame.draw.rect(screen, YELLOW , (500,150,150,100))
         screen.blit(myFont.render("CREATE NEW",1,BLUE),(175,185))
         screen.blit(myFont.render("LOG IN",1,BLUE),(550,185))
         userName = ""
+        
     elif stage == 2:
         screen.blit(myFont.render("Creating new acount:",1,BLUE),(100,150))
         pygame.draw.rect(screen, YELLOW, (275,210,275,5))
@@ -236,6 +351,7 @@ while done == False:
             screen.blit(myFont.render(userName,1,BLUE),(275,185))
         if newUserEmailInput == True:
             screen.blit(myFont.render(userEmail,1,BLUE),(235,215))
+            
     elif stage == 3:
         screen.blit(myFont.render("Use arrows to cycle through accounts, then press ENTER to select yours.",1,BLUE),(120,180))
         screen.blit(myBigFont.render("<",1,BLUE),(275,220))
@@ -243,6 +359,7 @@ while done == False:
         screen.blit(myFont.render(userNames[userNameDisplayNo],1,BLUE),(350,235))
         pygame.draw.rect(screen, YELLOW, (190,310,55,35))
         screen.blit(myFont.render("BACK",1,BLUE),(195,315))
+        
     elif stage == 4:
         screen.blit(myFont.render("Account : " + userName,1,BLUE),(120,145))
         pygame.draw.rect(screen, YELLOW, (300,150,150,50))
@@ -253,25 +370,38 @@ while done == False:
         screen.blit(myFont.render("Recomendation",1,BLUE),(312,302))
         pygame.draw.rect(screen, YELLOW, (190,310,55,35))
         screen.blit(myFont.render("BACK",1,BLUE),(195,315))
+        
     elif stage == 5:
-        pygame.draw.rect(screen, YELLOW , (150,150,150,100))
-        pygame.draw.rect(screen, YELLOW , (500,150,150,100))
-        screen.blit(myFont.render("VIEW CLOTHES",1,BLUE),(170,185))
-        screen.blit(myFont.render("EDIT CLOTHES",1,BLUE),(525,185))
         pygame.draw.rect(screen, YELLOW, (190,310,55,35))
         screen.blit(myFont.render("BACK",1,BLUE),(195,315))
+        pygame.draw.rect(screen, YELLOW , (150,150,150,100))
+        pygame.draw.rect(screen, YELLOW , (500,150,150,100))
+        screen.blit(myFont.render("ADD CLOTHES",1,BLUE),(165,185))
+        screen.blit(myFont.render("DELETE CLOTHES",1,BLUE),(515,185))
+        
     elif stage == 6:
         screen.blit(myFont.render("Username : ",1,LIGHTBLUE),(210,150))
         screen.blit(myFont.render("Email : ",1,LIGHTBLUE),(210,180))
-        screen.blit(myFont.render(newUserName,1,LIGHTBLUE),(310,150))
-        screen.blit(myFont.render(newUserEmail,1,LIGHTBLUE),(265,180))
-        screen.blit(myFont.render("EDIT",1,BLUE),(500,150))
-        screen.blit(myFont.render("EDIT",1,BLUE),(500,180))
+        screen.blit(myFont.render(temporaryUserName,1,LIGHTBLUE),(310,150))
+        screen.blit(myFont.render(temporaryUserEmail,1,LIGHTBLUE),(265,180))
         pygame.draw.rect(screen, YELLOW, (190,310,55,35))
         screen.blit(myFont.render("BACK",1,BLUE),(195,315))
+        if updateUserName == False and updateUserEmail == False:
+            screen.blit(myFont.render("EDIT",1,BLUE),(500,150))
+            screen.blit(myFont.render("EDIT",1,BLUE),(500,180))
+        elif updateUserName == True:
+            screen.blit(myFont.render("DONE",1,BLUE),(500,150))
+            screen.blit(myFont.render("CANCEL",1,BLUE),(550,150))
+            screen.blit(myFont.render(temporaryUserName,1,LIGHTBLUE),(310,150))
+        elif updateUserEmail == True:
+            screen.blit(myFont.render("DONE",1,BLUE),(500,180))
+            screen.blit(myFont.render("CANCEL",1,BLUE),(550,180))
+            screen.blit(myFont.render(temporaryUserEmail,1,LIGHTBLUE),(310,150))
+            
     elif stage == 7:
         pygame.draw.rect(screen, YELLOW, (190,310,55,35))
         screen.blit(myFont.render("BACK",1,BLUE),(195,315))
+        
     elif stage == 8:
         screen.blit(myBigFont.render("Account created!",1,BLUE),(200,100))
         screen.blit(myFont.render("You can now Log in through the main menu!",1,BLUE),(205,175))
@@ -279,10 +409,63 @@ while done == False:
         screen.blit(myFont.render("Email : " + userEmail,1,BLUE),(223,240))
         pygame.draw.rect(screen, YELLOW, (315,280,170,50))
         screen.blit(myFont.render("Back to main menu",1,BLUE),(323,290))
+        
     elif stage == 9:
         pygame.draw.rect(screen, YELLOW, (190,310,55,35))
         screen.blit(myFont.render("BACK",1,BLUE),(195,315))
+        screen.blit(myFont.render("Choose which category best describes your item of clothing :",1,LIGHTBLUE),(150,100))
+        pygame.draw.rect(screen, YELLOW,(50,150,100,50))
+        pygame.draw.rect(screen, YELLOW,(160,150,100,50))
+        pygame.draw.rect(screen, YELLOW,(270,150,100,50))
+        pygame.draw.rect(screen, YELLOW,(380,150,100,50))
+        pygame.draw.rect(screen, YELLOW,(490,150,100,50))
+        pygame.draw.rect(screen, YELLOW,(50,210,100,50))
+        pygame.draw.rect(screen, YELLOW,(160,210,100,50))
+        pygame.draw.rect(screen, YELLOW,(270,210,100,50))
+        pygame.draw.rect(screen, YELLOW,(380,210,100,50))
+        pygame.draw.rect(screen, YELLOW,(490,210,100,50))
+        screen.blit(myFont.render("Jacket",1,BLUE),(60,160))
+        screen.blit(myFont.render("Underwear",1,BLUE),(170,160))
+        screen.blit(myFont.render("Shirt",1,BLUE),(280,160))
+        screen.blit(myFont.render("Trousers",1,BLUE),(390,160))
+        screen.blit(myFont.render("Coveralls",1,BLUE),(500,160))
+        screen.blit(myFont.render("Sweater",1,BLUE),(60,220))
+        screen.blit(myFont.render("Coat",1,BLUE),(170,220))
+        screen.blit(myFont.render("Socks",1,BLUE),(280,220))
+        screen.blit(myFont.render("Shoes",1,BLUE),(390,220))
+        screen.blit(myFont.render("Dress",1,BLUE),(500,220))
+
     elif stage == 10:
+        pygame.draw.rect(screen, YELLOW, (190,310,55,35))
+        screen.blit(myFont.render("BACK",1,BLUE),(195,315))
+        screen.blit(myFont.render("Enter the name of your item of clothing : ",1,LIGHTBLUE),(150,150))
+        screen.blit(myFont.render("CLEAR",1,LIGHTBLUE),(450,220))
+        screen.blit(myFont.render(deleteClothingName,1,BLUE),(100,220))
+        pygame.draw.rect(screen, YELLOW,(100,250,350,5))
+        pygame.draw.rect(screen, YELLOW,(290,320,100,50))
+        screen.blit(myFont.render("NEXT",1,BLUE),(320,330))
+
+    elif stage == 11:
+        pygame.draw.rect(screen, YELLOW, (190,310,55,35))
+        screen.blit(myFont.render("BACK",1,BLUE),(195,315))
+        screen.blit(myFont.render("Name you new "+newClothingCategory+" :",1,LIGHTBLUE),(100,150))
+        screen.blit(myFont.render("THIS SHOULD BE SOMETHING YOU CAN REMEMBER",1,LIGHTBLUE),(50,190))
+        screen.blit(myFont.render("CLEAR",1,LIGHTBLUE),(450,220))
+        screen.blit(myFont.render(newClothingName,1,BLUE),(100,220))
+        pygame.draw.rect(screen, YELLOW,(100,250,350,5))
+        pygame.draw.rect(screen, YELLOW,(290,320,100,50))
+        screen.blit(myFont.render("COMFIRM",1,BLUE),(300,330))
+
+    elif stage == 12:
+        screen.blit(myBigFont.render("NEW CLOTHING CREATED!",1,LIGHTBLUE),(100,150))
+        pygame.draw.rect(screen, YELLOW,(290,320,100,50))
+        screen.blit(myFont.render("OK",1,BLUE),(330,330))
+
+    elif stage == 13:
+        screen.blit(myFont.render("Clothing name : "+deleteClothingName,1,LIGHTBLUE),(50,150))
+        screen.blit(myFont.render("Clothing type : "+deleteClothingType,1,LIGHTBLUE),(50,200))
+        pygame.draw.rect(screen, YELLOW,(290,320,100,50))
+        screen.blit(myFont.render("DELETE",1,BLUE),(300,330))
         pygame.draw.rect(screen, YELLOW, (190,310,55,35))
         screen.blit(myFont.render("BACK",1,BLUE),(195,315))
     pygame.display.flip()
